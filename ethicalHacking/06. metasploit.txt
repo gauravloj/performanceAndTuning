@@ -1,0 +1,16 @@
+1. `service postgresql start` : postgresql is basis of all the metasploit exploits that are stored
+2. `msfconsole` : starts metasploit console. Here are the different commads for metasploit
+    - `help` : list all the available commands
+    - `show exploit` : list all the available exploits
+    - `search mysql` : search the database (metasploit database) for available exploits for mysql
+    - `info <exploit path>` : gives the info about the exploit specified. Eg. `info auxiliary/scanner/mysql/mysql)hashdump`
+    - `use <exploit path>` : Use the exploit specified. Eg. `use auxiliary/scanner/mysql/mysql)hashdump`
+3. 'exploit' in metasploit are modules used to exploit vulnerabilities in the target system
+4. 'payload' is the action to do once the target system is accessible
+5. After running `use <exploit>`,
+    - use `show options` to get options that needs to be set before using an exploit
+    - `set <option name> <option value>` : Eg. `set rhost 192.168.2.22` , where rhost is one of the option from `show options`
+    - `exploit` : to run the current exploit
+    - `back` : back to msf console
+6. metasploitable2 : service full of exploits
+7. `nmap -F -sV <IP address>` : List all the servies ports and their status

@@ -1,0 +1,17 @@
+Website to check cyber threats: https://threatmap.checkpoint.com/
+Known as threat cloud
+
+Different types of threats:
+1. Malware: It's intent is to either steal data or corrupt user's data
+    Eg. virus, spyware, adware, worm, trojan
+    - Virus: They attach themselves to clean files and infect other clean files
+    - Trojan: They disguise themselves as legit software and creates backdoor to let other malwares inside the system
+    - Worms: Infect entire network devices. Eg. Botnet
+
+2. Phishing: Posing as trusted third party to gather personal information
+3. Password attacks: Attempt to obtain or decrypt user's passworword for illegal use.
+4. DDoS : Disrupting a service through network by repeatedly sending huge volume of dummy requests
+5. Man in the middle attach : Impersonate the endpoint between user and network to gain access to private data
+6. Drive-byDownloads: Install malicious software just by clicking the malicious link. Eg. Downloading a virus in the background without user's knowledge
+7. MalAdvertising: Compromise the system after clicking on malicious Advertising
+8. Rogue software: Malware acting as trusted software

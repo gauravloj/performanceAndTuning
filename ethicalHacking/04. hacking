@@ -1,0 +1,129 @@
+Internet engineering task forc is responsible for maintaining documentation about various protocols regarding anything on Internet
+
+Popular hacker : https://www.youtube.com/results?search_query=kevin+mitnick
+
+Skills needed:
+1. Understanding of Operating System
+2. Understanding of Basic software System
+3. Grasp of CLI commands
+4. Networking concepts: Cabels, Systems, switches
+5. Networking Archtechture
+6. Different networking protocols
+7. Database handling, working of different database.
+8. Network sniffing
+9. Cryptography, Cryptoanalysis
+
+
+-------------------------------------------------------------------------------------------
+
+Tools:
+1. Trojan listener
+2. wifi pineapple
+3. metasploit : used for vulnerability assessment
+4. wireshark : Used to sniff network packets
+5. openssl : Used to generate key, encrypt or decrypt file using different algos, generating certificates
+6. BitLocker: Disk encryption software using AES
+7. packETH
+8. Kali linux OS
+9. Backtrack OS
+10. aircrack-ng: wifi cracking
+11. Anonsurf
+12. owask : broken web application to practice different vulnerabilities
+13. bWapp : broken web application to practice XSS
+
+-------------------------------------------------------------------------------------------
+
+Popular linux distro:
+1. Kali linux
+2. Backbox
+3. deft
+4. parrot security
+5. pento o
+6. bugtraq-2 blackwidow
+7. cyborg
+8. archlinux
+-------------------------------------------------------------------------------------------
+
+Types of attack
+1. website defacing:
+2. Buffer Overflow
+3. Denial of service: ping flood, SYN flood, ICMP flood, smurf attack, Tribe flood network
+
+-------------------------------------------------------------------------------------------
+Penetration testing : Testing a network or system to find vulnerabilities
+-------------------------------------------------------------------------------------------
+Footprinting : Gathering exhaustive information about target system
+- Wayback machine (archive.org)
+- netcraft.com
+-------------------------------------------------------------------------------------------
+Using DNS:
+- whois (bash command) : used to get various regional internet registry info.
+    Syntax: whois netflix.com
+- dig <domain name>
+
+-------------------------------------------------------------------------------------------
+
+Google:
+- 'index of:' : exact patern matching for text inside quotes
+- filetype: pptx : search for result with specified type
+- inurl : search fot pattern in urls
+- google hacking database
+
+-------------------------------------------------------------------------------------------
+
+nmap:  Network mapper or Network scanner.
+Commands:
+    - `nmap -F www.netflix.com` : scans netflix.com for all the ports. 'F' flag is used for faster scanning
+    - `nmap -p 20-25,80,443 -F www.netflix.com` : Scans for port 20 to 25, 80 and 443 for netflix
+    - `nmap -A www.netflix.com` : Aggressive scan. It also displays traceroute i.e. route taken by a packet from source to destination
+    - `nmap --traceroute www.netflix.com` : traceroute for netflix
+    - `nmap -V www.netflix.com` : version of the service
+    - `nmap -o www.netflix.com` : OS for the host
+    - `nmap -F -oN output.txt www.netflix.com` : save the result in output.txt
+
+-------------------------------------------------------------------------------------------
+
+SQL Injection
+    - in band SQL Injection
+    - blind SQL Injection
+    - out of bound SQL Injection
+
+-------------------------------------------------------------------------------------------
+
+Steganography
+    - wax tablet
+    - invisible ink
+    - null cipher: hiding secret message jumpled with another message
+    - microdots: shrinking to message and then use megnify glass to read It
+    - semagrams
+
+Tyoes:
+1. Text Steganography : hiding data within a text
+2. Image Steganography : hiding data inside an Image
+3. audio Steganography : hiding data inside an audio
+4. Video Steganography
+5. Network Steganography
+6. Email Steganography
+
+Terms:
+1. Cover file (X) : object/file used to hide the information
+2. secret message (M) : message to hide inside Cover file
+3. Steganographic key (K): key used to encode M in X
+4. Steganographic encoder: f(X,M,K) - function to encode M in X using K
+5. Stego object: Output of encoder which looks exactly like cover file
+6. Steganographic decoder: Using the key (if used), decrypt the message M from X
+
+LSB Steganography:
+1. Loads an Image and look at each pixel in hexadecimal value
+2. Converts secret text into bits and store them into LSB (Least significant bit) of each pixel
+3. A delimiter is added at the end of editied pixels
+4. To decode, Extract all the LSB bits in each pixel until delimiter is found
+5. Convert the extracted bits to for the secret message
+
+Tools:
+1. Stegosuite
+2. Stegohide
+3. Xiao Steganography
+4. SSuite Picsel
+5. OpenPuff
+6. Camouflage

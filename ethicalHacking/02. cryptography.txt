@@ -1,0 +1,68 @@
+Definition:
+Cryptography is the practice and study of techniques for securing communication and data in the presence of adversaries.
+
+
+-----------------------------------------------------------------------------
+
+How it works:
+1. To protect the message, it is first converted to unreadable form. For example, some random numbers.
+2. A key is used to encrypt this message, in Cryptography, this encrypted message is called ciphertext.
+3. This ciphertext or encrypted message is sent over the communication channel.
+4. A decryption key is used to decrypt the message and recover the original plaintext.
+5. After using the key for decryption what will come out is the original plaintext message.
+6. If the message was tempered in the middle of communication, then this decryption will result in an error.
+7. Now, this error is very important. It is the way user knows that message sent to them is not the same as the message that is received.
+
+-----------------------------------------------------------------------------
+
+Classification of Cryptography:
+1. Symmetric key Cryptography (Secret key Cryptography):
+    An encryption system in which the sender and receiver of a message share a single,
+    common key that is used to encrypt and decrypt the message. The most popular
+    symmetric–key system is the Data Encryption Standard (DES)
+
+2. Transposition Ciphers:
+    In Cryptography, a transposition cipher is a method of encryption by which the positions
+    held by units of plaintext (which are commonly characters or groups of characters) are
+    shifted according to a regular system, so that the ciphertext constitutes a permutation
+    of the plaintext.
+    See transposition-cipher.png
+
+3. Substitution Cipher:
+    Method of encryption by which units of plaintext are replaced with ciphertext, according
+    to a fixed system; the “units” may be single letters (the most common), pairs of letters,
+    triplets of letters, mixtures of the above, and so forth.
+    See substitution-cipher.png
+
+4. Stream Cipher:
+    Symmetric or secret-key encryption algorithm that encrypts a single bit at a time.
+    With a Stream Cipher, the same plaintext bit or byte will encrypt to a different bit or
+    byte every time it is encrypted.
+    See Stream-cipher.png
+
+5. Block Cipher:
+    An encryption method that applies a deterministic algorithm along with a symmetric key
+    to encrypt a block of text, rather than encrypting one bit at a time as in stream ciphers
+    See Block-cipher-aht.png
+
+6. Asymmetric Key Encryption (or Public Key Cryptography):
+    The encryption process where different keys are used for encrypting and decrypting the
+    information. Keys are different but are mathematically related, such that retrieving the
+    plain text by decrypting ciphertext is feasible
+    See public-key-encryption.png
+
+7. RSA Algorithm: How RSA key is generated
+    - RSA stands for Rivest, Shamir, and Adelman, inventors of this technique
+    - Both public and private key are interchangeable
+    - Variable Key Size (512, 1024, or 2048 bits)
+    Eg. See RSA-encryption.png
+
+8. Enigma cipher
+
+9. Digital encryption Standards (Fiestal cipher) : 56 bit key
+
+10. Advanced encryption Standards (Rijndael)
+
+------------
+
+Public-Private key encrytion demo : http://cobweb.cs.uga.edu/~dme/csci6300/Encryption/Crypto.html

@@ -1,0 +1,41 @@
+Types of attacks
+1. Malware: Virus with intent to delete/steal data
+2. Phishing: Sites posing as trusted source to access confidential data
+3. Password attack : Gain access to system by cracking user's Password
+4. DDoS: Distributed denial of Service, Sending huge volume of request to create artificial delay in service response and overload the network
+5. Man in the middle attach : Impersonate the endpoint between user and network to gain access to private data
+6. Drive-byDownloads: Install malicious software just by clicking the malicious link
+7. MalAdvertising: Compromise the system after clicking on malicious Advertising
+8. Rogue software: Malware acting as trusted software
+
+---------------------------------------------------------------------------
+
+Link to list all the CYber breaches: https://informationisbeautiful.net/
+
+----------------------------------------------------------------------------
+
+CIA Triads:
+1. Confidentiality(Protecting unauthorised access): Example of threats
+    - Cracking encrypted data
+    - Man in the middle attack
+    - Data leakage
+    - Installing malware on system
+
+2. Integrity(Protecting unauthorised modification): Example of threats
+    - Web penetration for malware insertion
+    - Accessing servers and forging records
+    - Unauthorised data scan
+    - Remotely controlling zombie system
+
+3. Availability(Protecting unauthorised deletion): Example of threats
+    - DDoS attack
+    - Ransomware attack : forced encryption of important data
+    - Deliberately disrupting server room's power supply
+    - Flooding a server with too many request
+
+------------------------------------------------------------------------------
+Steps to Avoid/fix these attacks:
+1. Identify the vulnerability
+2. mitigate the threats
+3. Treat the risk
+

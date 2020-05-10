@@ -1,0 +1,17 @@
+Concepts:
+1. DNS
+2. Network ranges
+3. Regional internet registry. Eg. arin.com
+4. google hacking database
+5. tcp/ip vs OSI model
+6. Addressing modes (Addressing packets to different system over network) : unicast, broadcast, multicast (selective broadcast)
+7. DHCP : Dynamic host control protocol, for dynamically assigning IP
+8. Digital certificates
+9. Cryptographic hashing
+10. TLS and SSL: Transport layer security, Secure socket layer
+11. Disk encryption
+12. Intrusion detection system
+13. Cross site scripting
+14. SQL injection
+15. Steganography : Hiding info in plain sight. Eg. secret message hidden as dog image.
+16. LSB Steganography: Least significant bit Steganography
