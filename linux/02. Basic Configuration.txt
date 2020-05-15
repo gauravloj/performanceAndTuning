@@ -1,0 +1,6 @@
+1. If Ubuntu is running on virtual machine. Then install 'guest addition' in ubuntu
+2. unity-tweak-tool : tool to modify ubuntu themes.
+3. .themes : foldder in home directory that contains theme files
+4. .icon : foldder in home directory that contains files for icon-theme
+5. /etc/hosts : Mapping of domain name to IP address. Browser first looks in this file for any domain enterd,
+                If the domain not found in hosts file thne it looks up via ISP

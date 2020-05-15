@@ -1,0 +1,12 @@
+1. GNU : free open source colletions of packages
+2. Linux: kernel with unix like environment
+3. Debian : Free software foundation
+4. Ubuntu: OS based on GNU/Linux
+5. Unity: UI of Ubuntu
+6. Linux distribution: OS developed from forking the original GNU/Linux OS. Eg. OS forked from Ubuntu viz. Kubuntu, Xubuntu, LinuxMint etc
+7. GTK : Themeing engine used by unity in ubuntu
+8. / : root folder or windows equivalent of 'My computer'
+9. /home : User's folder
+10. /usr/bin : executable binary files that can be run from terminal
+11. /usr/share : config files for binaries in /usr/bin
+12. /usr/shar/applications : Shortcut/links to all the installed applications

@@ -1,0 +1,85 @@
+1. `clear` : clears the terminal
+2. `sudo <command>` : run the 'command' with admin previledge
+3. `pwd` : print working directory, prints full path of current directory
+4. `cd <path>` : change directory to given 'path'
+    - if path starts with '/' then it's absolute path otherwise it is relative to current directory
+    - '/' is the folder separator
+    - a dot '.' alone in the path separated by '/' represents current directory
+    - double dot '..' represents parent directory
+    _ tilde '~' is the shortcut to home directory i.e. /home/<user>
+5. `ls` : Lists the content of current directory
+6. `history` : history of commands executed in current terminal session
+7. `!!` : last command executed on terminal
+8. `man <command>` : Display the manual page for specified 'command'
+9. `sudo su` : switch to admin account
+10. `apt-get` : package manager for ubuntu (mac has homebrew as package manager)
+    - `apt-get install <package>` : to install 'package' from ubuntu configured repository
+    - `apt-get remove <package>` : to uninstall 'package'
+    - `apt-cache search <pattern>` : searches the ubuntu package repository for packages that matches the 'pattern'
+    - `apt-cache policy package` : returns info about available 'package' in the repository
+    - `apt-get upgrade <package>` : Upgrades the specified package
+11. `dpkg` : Tool to manage package in ubuntu (not from the repository)
+    - `dpkg -i <path/to/package>` : installs the package located at given path
+12. File permissions and ownerships:
+    - `chown <user>:<group> <file_or_folder>` : Grants the ownership of specified file or folder to given user and group
+    - `chmod <permission flags> <file_or_folder>` : modifies the access permission of specified file or folder as per given flag
+13. `rm <filename>` : deletes the file 'filename'
+14. `mkdir <directoryname>` : creates an empty directory 'directoryname'
+15. `touch <filename>`: creates the file 'filename' if it doesn't exist else it updates the modified time of 'filename'
+16. `mv <sourcepath> <destinationpath>`: moves the file specified by 'sourcepath' to the path specified by 'destinationpath'
+17. `cp <sourcepath> <destinationpath>`: Copies the file specified by 'sourcepath' to the path specified by 'destinationpath'
+18. Find files :
+    - `find <searchpath> -type <filetype> -name <pattern>` : finds all the files of type 'filetype' that matches 'pattern' in 'searchpath'
+    - `find <searchpath> -iname <pattern>`: ignores the letter case while searching
+    - `find <searchpath> -perm <permission flags>`: Searches for files with specified permissions
+    - `find <searchpath> -s <size>`: Searches for files with specified size criteria
+    - `find <searchpath> -name <pattern> -exec <action> {}+` : Performs the specified 'action' (which is another command) to the search result.
+                                                '{}+' are the delimiter to mark the end of action command
+19. Grep :
+    - `grep <pattern> <files>` : searchs for specified 'pattern' in the given list of 'files'
+    - `grep -i ...` : ignores the letter case while searching
+    - `grep -n ...` : displays the line number of the searched pattern in the file
+20. Input/Output redirection:
+    - `bashcommand > filename` : Runs the command 'bashcommand' and stores the output in 'filename'
+21. Tee: tee commands displays the result of another command in console as well as stores them in specified file
+22. Process information :
+    - `top` : displays the realtime information about list of processes currently running
+    - `ps aux` : displays the snapshot of information about list of processes currently running at the time this command was executed
+    - `pgrep <processname>` : list the pid (process id) associated with given processname. Eg. pgrep Finder
+    - `kill -9 <processid>` : Kills the process mapped to specified 'processid'
+    - `killall <processname>` : Kills all instances of given 'processname'
+23. Services:
+    - `sudo service <servicename> start` : starts the service specified by 'servicename'
+    - `sudo service <servicename> stop` : stops the service specified by 'servicename'
+    - <servicename>.yml : Default extension of config files for any service. These conifg files are stored in /etc. 'find' command can be used to search
+    - `sudo service <servicename> restart` : restarts the service specified by 'servicename'
+24. Scheduled task:
+    - `crontab -e` : Opens crontab files saved in /etc folder
+    - Syntax for crontab file : '<min> <hour> <days of month> <month> <day of week> <command>
+    - `15 14 * * * ls > ~/cronres` : If this line is written in crontab file, then 'ls > ~/cronres' command will
+                                     run at 14th hr and 15th min irrespective of day, month, day of week
+25. Manage users and groups:
+    - `sudo adduser <username>` : Creates a new account with name 'username'
+    - `su <user>` : switch to 'user' account
+    - `sudo adduser <username>` sudo: Adds the account 'username' to sudoers list. It means 'username' can run sudo commands
+    - `sudo deluser <username>` : Deletes account with name 'username'
+    - `sudo passwd <username>` : changes password for 'username'
+    - `sudo groupadd <groupname>` : Creates a new group with name 'groupname'
+    - `sudo adduser <username>` <groupname>: Adds the account 'username' to group 'groupname list. It means 'username' can run sudo commands
+26. Networking:
+    - `ping <IP or URL>`: This commands tests if the given IP or URL is available over network or not
+    - `ifconfig` : List different network interfaces along with their information
+    - `tcpdump` : Network packet sniffer.
+    - `netstat` : Network statistics. 'https://network-tools.com/' provides info about specified IP address
+    - `traceroute <url>` : Displays the info about route taken by given 'url' i.e. each router hop from local system to the destination 'url'
+    - `nmap <ip>` : Displays the information about services, ports, devices mapped to given 'ip'
+27. Hostname
+    - `sudo hostnamectl set-hostname <newhostname>` : changes the hostname to 'newhostname'
+    - `hostname` : displays the current hostname
+28. Remote host
+    - `ssh user@host` : connects to given 'host' via 'user' account remotely
+    - `sftp user@host` : connects to given 'host' via 'user' account remotely and allows copying files to and from remote 'host'
+        - `ls` : list the content on remote host
+        - `lls` : list the content on local host
+        - `put <file>` : Upload the local 'file' to remote host
+        - `get <file>` : Download the remote 'file' to local host
