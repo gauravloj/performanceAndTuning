@@ -1,0 +1,6 @@
+Service name : Port on which service is running
+
+1. Domain name server : 53
+2. SSH : 22
+3. SMTP : 25
+4. HTTP : 80

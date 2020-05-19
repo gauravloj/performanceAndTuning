@@ -1,0 +1,18 @@
+1. bin : Binary files. Most of the bash executable files are stored here
+2. sbin : System Binary files. Most of the bash executable files related to system management are stored here
+3. boot : All the files required to boot the OS on startup
+4. dev: All the hardware devices are stored as a file here. Eg. sda is storage drive
+5. etc : All the system wide configurations are stored here
+6. lib, lib32, lib64 : Libraries used to execute binaries from  bin/sbin folder
+7. media, mnt : External mounted drives are found here
+8. opt: Optional folder where manually installed softwares from vendor are stored. Eg. VPN
+9. proc : 'sudo' files that contains info about the processes
+10. root: Home folder for root users
+11. run : temp files are stored here which are stored only in RAM. THey will be removed when system restarts
+12. srv : Information about different services
+13. sys : system folder. User can interact with system using the files stored in this folder
+14. tmp: Files that needs to be stored temporary, are stored here. These files are created by different applications,
+        hence they will be available even after system reboot
+15. usr : usr specific Application folder where only user who installs the application can control it.
+16. var : Files and directory that are expected to grow in size. Eg. crash that contains app logs for crashed application
+17. home : Personal folder for each user

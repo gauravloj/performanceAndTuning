@@ -1,0 +1,24 @@
+1. White/grey/black hat hackers :
+    - white hat : Who hacks within legal
+    - grey
+    - black
+2. Footprint: Information gathering
+3. Dos/DDos : Denial of service attack
+4. FUD: Fully Undetectable
+5. RAT : remote administration tools
+6. Fishing: Attack involving a bait to lure the victim into installing the malicios content. Eg. Spam mail with malicious link
+7. SQL injections: Passing SQL queries to http requests.
+8. VPN: Virtual private network. Ways to anonymise your IP
+9. Proxy: Intermediate hop for any request.
+10. Tor: Tool to route the request through multiple router to hide your identity
+11. VPS: Virtual private service. An extra layer of service between your service and external network
+12. Keyoggers: Tools to capture key strokes of the victim
+13. Terminal: Interface to run commands that can control system behaviour.
+14. Firewall: Protection layer to authenticate the request going in and out of your system
+15. Root Kit: A tool used to hide any process from the system. Hence, the hidden process won't be visible in task manager or process manager.
+    - Tools like task manager request system to fetch running processes.
+    - Root Kit redirects that request to itself and returns the list of process except the hidden one
+16. Reverse-shells: Tool that infects another device and that opens a connection to your own terminal so that you can pass commands to remote terminal.
+17. Overheating:
+    - When hacking process runs for a long time, CPU tends to heat up.
+    - Avoice running any hacking process for a long time to prevent any damage to the system due to Overheating.

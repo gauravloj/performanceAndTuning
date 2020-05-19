@@ -1,0 +1,13 @@
+1. MAC address is the physical or hardware address of any network interface card (NIC)
+2. MAC address along with IP address is used to identify anyone over a connected network
+3. MAC address is limited to internal system only.
+4. Run `ifconfig` : Value of HWaddr is the MAC address
+5. Sample MAC address looks like '08:23:00:28:72:46'. In this, first three values are reserved for the vender.
+6. From the vendor, one can identify if there is any vulnerability exposed by that vendor
+7. MAC address can be changed using macchanger:
+    - `macchanger -s <NIC>` : Displays the MAC address of given NIC device
+    - `macchanger -r <NIC>` : Set random MAC address to specified NIC
+
+8. Running macchanger on boot to change MAC address everytime system boots
+    - `crontab -e` : Opens crontab file for editing
+    - At the end of this file, add this line `@reboot macchanger -r <NIC>`. Eg `@reboot macchanger -r eth0`

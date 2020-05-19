@@ -1,0 +1,6 @@
+1. http://crasseux.com/, http://crasseux.com/books/ : useful scripts
+2. linux questions : https://www.linuxquestions.org/
+3. code.google.com
+4. https://www.openwall.com/ : john ripper hash cracker
+5. https://nmap.org/nsedoc/categories/default.html : scripts that can be used along with nmap
+6. http://ha.ckers.org
