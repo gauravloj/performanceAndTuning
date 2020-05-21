@@ -1,0 +1,1 @@
+echo "@reboot machanger -r eth0" >> /var/spool/cron/crontab/root

@@ -1,2 +1,0 @@
-1. hping : software used to send request to a server continuously
-2. using nmap and slowloris.pl script. check scripts folder for the script

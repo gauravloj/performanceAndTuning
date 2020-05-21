@@ -1,0 +1,18 @@
+1. Proxy and VPN can be used to stay anonymous, but they are not as secure as tor
+2. Tor uses multiple routing mechanism to send/receive any request over internet.
+3. VPN can be used to mask the source IP location when the target network usually expeccts network
+    traffic from certain geographical location
+4. Run `sudo apt-get install tor -y` to install tor. '-y' argument is to select 'Yes' for any query during the installation
+5. Add new user using 'adduser' instead of 'useradd'
+    - New user is required because tor should not be run using root user
+    - In case if any malicious code is downloaded from internet, then it won't have sudo permissions if tor is used from new user
+    - `adduser <username>` : A new user with name 'username' will be created
+6. Switch to newly created user
+7. Go to 'https://www.torproject.org'
+8. Download tor for GNU/Linux
+9. Extract the downloaded file
+10. Run the file 'start-tor-browser'. It will open tor browser
+11. Search 'hiddenwiki' in the search field. It will show list of wiki links for darknet wiyh .onion extension
+12. It is possible that links keep changing.
+13. Once you open the hiddenwiki link, It has links to a lot of sources with a lot of information on a lot of topics
+14. One of the useful section is 'Forums'

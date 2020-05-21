@@ -1,0 +1,8 @@
+1. diskutil : Disk utility
+    - diskutil mountDisk /dev/disk3
+2. dd : copy from standard input to standard output
+    - sudo dd if=kali-linux-2020.iso of=/dev/disk3 bs=4m
+3.
+
+
+https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/

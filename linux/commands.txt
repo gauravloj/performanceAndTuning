@@ -83,3 +83,8 @@
         - `lls` : list the content on local host
         - `put <file>` : Upload the local 'file' to remote host
         - `get <file>` : Download the remote 'file' to local host
+29 locate :
+    - It uses the database of files to locate the file.
+    - This databse is updated daily
+    - To manually update the database, run `updatedb` as root
+30 updatedb : updates the file database
