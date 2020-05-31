@@ -1,0 +1,46 @@
+1. BIOS stands for “Basic Input/Output System”
+    -and is a type of firmware stored on a chip on your motherboard.
+    - When you start your computer, the computers boots the BIOS
+    - It configures your hardware before handing off to a boot device (usually your hard drive).
+    - t can only boot from drives of 2.1 TB or less
+    - The BIOS must run in 16-bit processor mode, and only has 1 MB of space to execute in
+    - It has trouble initializing multiple hardware devices at once, which leads to a slower boot process when initializing all the hardware interfaces and devices on a modern PC
+
+2. UEFI stands for “Unified Extensible Firmware Interface”.
+    - UEFI offers support for boot volumes over 2 TB in size
+    - support for more than four partitions on a drive, faster booting, and enables more modern features.
+    - Supports 'secure boot' to secure the boot process against rootkits.
+    - UEFI firmware can boot from drives of 2.2 TB or larger—in fact, the theoretical limit is 9.4 zettabytes.
+    - UEFI uses the GPT partitioning scheme instead of MBR
+    - It boots in a more standardized way, launching EFI executables rather than running code from a drive’s master boot record.
+
+3. You can configure various settings in the BIOS setup screen.
+    - Settings like computer’s hardware configuration, system time, and boot order
+4. BIOS goes through a POST, or Power-On Self Test, before booting your operating system.
+    - It checks to ensure your hardware configuration is valid and working properly
+    - If something is wrong, you’ll see an error message or hear a cryptic series of beep codes.
+    - You’ll have to look up what different sequences of beeps mean in the computer’s manual.
+5. When your computer boots—and after the POST finishes—the BIOS looks for a Master Boot Record, or MBR
+    - It is stored on the boot device and uses it to launch the bootloader
+    - CMOS, stands for Complementary Metal-Oxide-Semiconductor.
+    - CMOS is battery-backed memory where the BIOS stores various settings on the motherboard.
+    - CMOS is replaced with flash memory (also referred to as EEPROM) in contemporary systems
+6. Partition: 
+    - You have to partition a disk drive before you can use it
+    - MBR (Master Boot Record) and GPT (GUID Partition Table) are two different ways of storing the partitioning information on a drive
+    - This information includes where partitions start and begin, so your operating system knows which sectors belong to each partition and which partition is bootable.
+7. GPT: GUID Partition Table
+    - It’s associated with UEFI
+    - every partition on the drive has a “globally unique identifier,” or GUID — a long and random string
+    - GPT allows for a nearly unlimited number of partitions
+    - GPT stores multiple copies of boot data across the disk, so it’s much more robust and can recover if the data is corrupted.
+    - GPT stores cyclic redundancy check (CRC) values to check that its data is intact
+    - GPT drives tend to include a “protective MBR.” . If you try to manage a GPT disk with an old tool that can only read MBRs, it will see a single partition that extends across the entire drive. 
+8. MBR: Master Boot Record
+    - It is a special boot sector located at the beginning of a drive
+    - This sector contains a boot loader for the installed operating system and information about the drive’s logical partitions.
+    - he boot loader is a small bit of code that generally loads the larger boot loader from another partition on a drive
+    - In Windows, the initial bits of the Windows boot loader reside here
+    - In Linux, the GRUB boot loader will typically be located in the MBR
+    - works only with disks up to 2 TB in size.
+    - supports only up to four primary partitions

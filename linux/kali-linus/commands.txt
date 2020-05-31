@@ -1,0 +1,103 @@
+1. `sha256sum kali-linux-2016.2-amd64.iso` : checksum of file 'kali-linux-2016.2-amd64.iso'
+2. `wget -q -O - https://www.kali.org/archive-key.asc | gpg --import` or `gpg --keyserver hkp://keys.gnupg.net --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6`
+3. gpg --fingerprint 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+4. wget http://cdimage.kali.org/current/SHA256SUMS
+5. wget http://cdimage.kali.org/current/SHA256SUMS.gpg
+6. gpg --verify SHA256SUMS.gpg SHA256SUMS
+7. `grep -qP '^flags\s*:.*\blm\b' /proc/cpuinfo && echo 64-bit || echo 32-bit` : check is system is 32 or 64 bit
+8. Logging:
+    - `dmesg` : 
+        - print or control the kernel ring buffer
+        - the kernel emits messages that it stores in a ring buffer whenever something interesting happens
+        - Eg. USB device being inserted, a failing hard disk operation, or initial hardware detection on boot
+    - `journalctl` : 
+        - Systemd’s journal stores multiple logs (stdout/stderr output of daemons, syslog messages, kernel logs) 
+        - This commands dumps all the available logs in a chronological way
+        - `journalctl -r` : print  in reverse order, hence new logs will appear on top
+        - `journalctl -f` : print the logs as they appear
+        - `journalctl -u` : Limits the messages to those emitted by a specific systemd unit (ex: journalctl -u ssh.service).
+9. `dd if=kali-linux-light-2016.2-amd64.iso of=/dev/sdb` : Copy the content of 'if' parameter to 'of' parameter block by block
+10 `dd if=/dev/zero of=test.img bs=1M count=6144` :  create test.img file of size 1mb * 6144
+11. `ioctl` : Command to control hardware devices
+12. `mount` : to mount devices on system. These devices are then available at mount points
+13. `mkfs` : prepare filesystem on a disk device before using it. Also known as formatting.
+    - `mkfs.ext2 <devicefile>` : ext2 file system. Eg. mkfs.ext2 /dev/sda1
+14. `dmidecode -t type` : dumps memory information of given 'type' of device
+15. Discovering Hardware: 
+    - The kernel exports many details about detected hardware through the /proc/ and /sys/ virtual filesystems.
+    - `lspci` : (in the pciutils package)  lists PCI devices
+    - `lsusb` : (in the usbutils package) lists USB devices
+    - `lspcmcia` :  (in the pcmciautils package) lists PCMCIA cards
+    - `lsdev` : (in the procinfo package) lists communication resources used by devices.
+    - `lshw` : combination of the above programs and displays a long description of the hardware discovered in a hierarchical manner.
+    - dmesg | grep CPU0 : CPU info
+    - lspci | grep Ethernet : Ethernet info
+    - lspci -v -s `lspci | grep VGA | cut -f1 -d\ ` : graphic card info
+16. Network manager:
+    - `nmcli radio wifi on` : turn on wifi
+    - `if up` 
+    - `ifdown`
+17. `pwgen` to generate random password
+18. System manager : 
+    - `systemctl`
+19. User manager:
+    - /etc/passwd : list of users
+    - /etc/shadow : encrypted passwords of users
+    - /etc/group : list of groups
+    - /etc/gshadow : list of group passwords
+    - `getent` :  Displays entries from databases supported by the Name Service Switch libraries, which are configured in /etc/nsswitch.conf
+        - `getent passwd root` : return entry for 'root' from /etc/passwd
+        - `getent passwd` : return all entry from /etc/passwd
+    - '/etc/skel' is the skeleton of home directory whenever a new user is created
+    - `passwd` — permits a regular user to change their password, which in turn, updates the /etc/shadow file.
+    - `chfn` — (CHange Full Name), reserved for the super-user (root), modifies the GECOS, or “general information” field.
+    - `chsh` — (CHange SHell) changes the user’s login shell. However, available choices will be limited to those listed in /etc/shells;
+    - `chage` — (CHange AGE) allows the administrator to change the password expiration settings by passing the user name as an argument.
+20. Package manager:
+    - '/usr/share/doc/package/README.Debian' : Document of 'package' from it's maintainer
+    - `dpkg -L package` : command gives a list of files included in the package
+    - `dpkg -s package` : displays the package meta-data and shows any possible recommended or suggested packages
+    - `debconf-show packagename` : Display current cofiguration of given 'packagename'
+    - `dpkg-reconfigure packagename` : Reconfigures given packagename
+21. SSH :
+    - `systemctl start ssh` : manually start the SSH service
+    - `systemctl enable ssh` : configure it to start at boot time
+    - '/etc/ssh/sshd_config' : All the options are documented in sshd_config(5).
+    - Default port is 22
+    - `systemctl reload ssh` " : apply the new settings
+22. Postgresql:
+    - `systemctl start postgresql`
+    - `createuser` : adds a new user
+    - `dropuser` : removes a user
+    - `createdb` : adds a new database
+    - `dropdb` : removes existing database.
+    - `su - postgres` : postgres is the admin user for postgres. One can create more user after switching to this account
+    - `psql -h localhost -U <username> <dbname>` : connect to database 'dbname' with user 'username'
+23. Apache:
+    - `systemctl start apache2`
+    - `a2enmod modulename` : enable module 'modulename' for apache. Creates a symlin in '/etc/apache2/mods-enabled/'
+    - `a2dismod modulename` : disable module 'modulename'. Removes a symlin in '/etc/apache2/mods-enabled/'
+    - '/etc/apache2/mods-available/' : available mods. Eg. php, ssl
+    - web server listens on port 80 (as configured in /etc/apache2/ports.conf)
+    - serves pages from the /var/www/html/ directory by default (as configured in /etc/apache2/sites-enabled/000-default.conf).
+    - `a2ensite` : enable a new virtual host (domain) on apache server
+24. Managing services:
+    - `systemd` : 
+        - responsible for the boot sequence,
+        - Acts as a full featured service manager, starting and monitoring services
+        - systemd can be queried and controlled with systemctl
+    - `systemctl list-units` : outputs a list of the active units.
+    - `systemctl status` : hierarchical overview of the running services.
+    - Each service is represented by a service unit, which is described by a service file usually 
+      shipped in /lib/systemd/system/ (or /run/systemd/system/, or /etc/systemd/system/; they are listed 
+      by increasing order of importance, and the last one wins). Each is possibly modified by other 
+      service-name.service.d/*.conf files in the same set of directories. Those unit files are plain text 
+      files whose format is inspired by the well-known “*.ini” files of Microsoft Windows, with 
+      key = value pairs grouped between [section] headers.
+25. turn any computer with a wireless interface into a wireless access point with hostapd
+    - iptables -t nat -F
+    - iptables -F
+    - iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+    - iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+    - echo '1' > /proc/sys/net/ipv4/ip_forward
+    - This method stilll requires DNS, dhcp

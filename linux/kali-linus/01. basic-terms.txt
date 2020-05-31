@@ -22,3 +22,7 @@
 17. Overheating:
     - When hacking process runs for a long time, CPU tends to heat up.
     - Avoice running any hacking process for a long time to prevent any damage to the system due to Overheating.
+18 . The differences between forensix and live bot :
+    - 'noswap' and 'noautomount' boot parameters exist in the forensics mode option.
+    - noswap is a standard Debian boot parameter
+    - The noautomaount is a Kali specific feature, implemented by the /etc/X11/Xsession.d/52kali_noautomount file, shipped in the kali-defaults package.

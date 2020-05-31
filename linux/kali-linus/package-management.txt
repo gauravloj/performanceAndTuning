@@ -1,0 +1,63 @@
+1. dpkg : default debian package management tool
+    - installs oflline packages
+    - `dpkg -i wireshak.deb` : will install package 'wireshak.deb' file in current directory
+    - Installation includes two steps 'unpack' and configure
+    - `dpkg --unpack wireshak.deb` : will unpack but not configure the package
+    - `dpkg --configure wireshak` : will configure the unpacked wireshark package
+    - `dpkg --remove` : remove/uninstall wireshark from system but retain config and user data files
+    - `dpkg -P wireshak` : uninstall wireshak completely from the system including config and user data files
+    - Querying package database:
+        - Package Database for querying package info resides in '/var/lib/dpkg'
+        - '/var/lib/dpkg/info' : package configuration scripts
+        - '/var/lib/dpkg/info/*.list' : list of files installed
+        - '/var/lib/dpkg/status' : status of each installed package
+        - `dpkg -L packagename` : lists the files that were installed by the specified package
+        - `dpkg --search filename` : finds any packages containing the file or path passed in the argument
+        - `dpkg --status package` : displays the headers of an installed package
+        - `dpkg --list` : list of packages known to the system and their installation status
+        - `dpkg --contents file.deb` : lists all the files in given 'file.deb' file
+        - `dpkg --info file.deb`: displays the headers of the given 'file.deb' fil
+    - '/var/log/dpkg.log' : dpkg logs 
+2. apt : Advanced Package tool which takes care of missing dependencies while installing a package
+    - It doesn't require a package to be downloaded before installing.
+    - 'apt upgdate' : Downloads the list of currently available packages
+    - `apt install wireshark` : will install wireshak in the system.
+    - It will install the necassary dependencies automatically
+    - `apt -o Dpkg::Options::="--force-overwrite" install wireshark` : passing force-owerwrite argument from dpkg while installing via apt 
+    - `apt upgrade`, `apt-get upgrade` : looks for installed packages that can be upgraded without removing any packages.
+    - `apt full-upgrade` : For major upgrades
+    - `apt remove wireshak` : remove/uninstall wireshak from system
+    - `apt purge wireshak` : uninstall wireshak completely from the system including config and user data files
+    - Querying package database:
+        - '/var/lib/apt/lists/' : list of reference Packages files located on Debian mirrors
+        - '/var/cache/apt/archives/' : cached copy of already downloaded packages
+        - `apt-cache search keyword`, `apt search keyword` : keyword-based package search
+        - `apt-cache show package`, `apt show package` : display the headers of the package’s available versions
+        - `axi-cache search` : alternative to 'apt-cache search' command
+3. Package : 
+    - .deb file for debian 
+    - binary package can be directly used for its designed purpose
+    - source package has source code in it
+    - Debian package contains metadata required to install remove or update a package
+4. '/etc/apt/sources.list' : lists the different repositories (or sources) that publish Debian packages.
+    - APT retrieves its packages from a repository listed in this file
+    - Each active line contains the description of a source, made of three parts separated by spaces
+    - Commented lines begin with a #character
+    - Syntax : 'deb http://http.kali.org/kali kali-rolling main non-free contrib'
+        - 'deb' for binary packages and 'deb-src' for source packages (includes source code)
+        - 'http://http.kali.org/kali' : base URL of the source
+        - 'kali-rolling main non-free contrib' : This field depends on repository structure:
+        - Debian and Kali use three sections to differentiate packages according to the licenses chosen by the authors of each work.
+            - 'main' : contains all packages that fully comply with the Debian Free Software Guidelines
+            - 'non-free' : contains software that does not (entirely) conform to these principles but which can nevertheless be distributed without restrictions
+            - 'contrib' : contributions, set of open source software that cannot function without some non-free elements.
+        - repositories :
+            - 'kali-rolling' : main repository for end-users
+            - 'Kali-Dev' : space where Kali developers resolve dependency problems arising from the merge of the Kali-specific packages into Debian Testing
+            - 'Kali-Bleeding-Edge' : contains packages automatically built out of the upstream Git
+5. Adding new source list : 
+    - Create a new file under '/etc/apt/sources.list.d' which contains the repository info
+6. Mirrors : 
+    - 'http.kali.org' in base url is a server running mirrorBrain which will redirect your HTTP requests to an official mirror close to you
+    - to see where you are being redirected, run : `curl -sI http://http.kali.org/README`
+    - If apt command faces any issue using a mirror, than mirrors from above file can be directly used in sources.list file

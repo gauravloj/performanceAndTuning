@@ -1,0 +1,10 @@
+1. turn off webRTC
+    - firefox : open 'about:config' in empty tab
+    - search 'media.peerconnection.enabled' and double tap to disable it
+    - search 'media.navigator.enabled' and double tap to disable it
+2. proxychains:
+    - edit '/etc/proxychains.conf'
+    - Add the proxy IP and port at the end of file
+3. Use proxy tools
+    - Proxy tools like tor can be used in association with proxychains
+4. Use VPN

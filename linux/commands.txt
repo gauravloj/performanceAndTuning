@@ -6,7 +6,8 @@
     - '/' is the folder separator
     - a dot '.' alone in the path separated by '/' represents current directory
     - double dot '..' represents parent directory
-    _ tilde '~' is the shortcut to home directory i.e. /home/<user>
+    - tilde '~' is the shortcut to home directory i.e. /home/<user>
+    - `cd -` : go back to previous working directory
 5. `ls` : Lists the content of current directory
 6. `history` : history of commands executed in current terminal session
 7. `!!` : last command executed on terminal
@@ -21,8 +22,13 @@
 11. `dpkg` : Tool to manage package in ubuntu (not from the repository)
     - `dpkg -i <path/to/package>` : installs the package located at given path
 12. File permissions and ownerships:
-    - `chown <user>:<group> <file_or_folder>` : Grants the ownership of specified file or folder to given user and group
+    - user category are 'u' for users, 'g' for groups and 'o' for others
+    - types of rights are 'r' for read-only, 'w' for write, 'x' for execute
+    - `chown <user>:<group> <file_or_folder>`
+        - Grants the ownership of specified file or folder to given user and group
     - `chmod <permission flags> <file_or_folder>` : modifies the access permission of specified file or folder as per given flag
+    - `chgrp` : (change group)
+    - `id` : Displays information about current user and it's groups
 13. `rm <filename>` : deletes the file 'filename'
 14. `mkdir <directoryname>` : creates an empty directory 'directoryname'
 15. `touch <filename>`: creates the file 'filename' if it doesn't exist else it updates the modified time of 'filename'
@@ -45,8 +51,11 @@
 22. Process information :
     - `top` : displays the realtime information about list of processes currently running
     - `ps aux` : displays the snapshot of information about list of processes currently running at the time this command was executed
+    - `jobs` : list the processes running in background along with 'job-number'
+    - fg %job-number : brings the background job mapped with 'job-number' to foreground
+    - bg %job-number : starts the job mapped with 'job-number' as background process
     - `pgrep <processname>` : list the pid (process id) associated with given processname. Eg. pgrep Finder
-    - `kill -9 <processid>` : Kills the process mapped to specified 'processid'
+    - `kill -<signal> <processid>` : Kills the process mapped to specified 'processid' as per given 'signal'
     - `killall <processname>` : Kills all instances of given 'processname'
 23. Services:
     - `sudo service <servicename> start` : starts the service specified by 'servicename'
@@ -88,3 +97,15 @@
     - This databse is updated daily
     - To manually update the database, run `updatedb` as root
 30 updatedb : updates the file database
+31. `type <bash command>` : prints type of given command. Eg. `type ls`
+32. `editor` or `nano` : terminal editor like vim
+33. Memory information:
+    - `free` : Displays information about RAM and it's usage
+    - `df` : disk free, info about disk storage
+    - `uname -a` : displays the following-
+        - the kernel name (Linux)
+        - the hostname
+        - the kernel release
+        - the kernel version
+        - the machine type (an architecture string such as x86_64)
+        - and the name of the operating system (GNU/Linux)

@@ -1,0 +1,4 @@
+1. `netsh wlan show profile`
+    - list all the wifi points that the system connected to at least onces. This command is only for windows machine
+    - `netsh wlan show profile <wifi name> key=clear` : Displays the information about wireless including username and password 
+2. 

@@ -1,0 +1,36 @@
+1. http://catb.org/~esr/faqs/smart-questions.html : How to ask question smartly
+2. `man command` : opens manual page for given 'command'
+    - Sometimes names can collide. For example, the shell’s read command has the same name as the read system call.
+      This is why manual pages are organized in the following numbered sections:
+        1. Commands that can be executed from the command line
+        2. System calls (functions provided by the kernel)
+        3. Library functions (provided by system libraries)
+        4. Devices (on Unix-like systems, these are special files, usually placed in the /dev/ directory)
+        5. Configuration files (formats and conventions)
+        6. Games
+        7. Sets of macros and standards
+        8. System administration commands
+        9. Kernel routines
+    - `man 2 command` : specify which section of manual page to use for given 'command'. 
+        - These numbers can be from 1-9 as mentioned above
+        - `man command` : Fetches first available section of man page  for that command.
+                Eg. `man shadow` will display `man 5 shadow` by default as 1-4 are not available
+3. `apropos` : searches manual pages (or more specifically their short descriptions) for any keywords that you provide
+    - Eg. `apropos "copy file"
+4. konquerer or yelp for graphical documentation
+5. pinfo for detailed info documentation
+6. package specific documentation :
+    - '/usr/share/doc/<package>/README*' file in a package
+    - <package>-doc : For large documentation. Eg. perldoc
+    - README.Debian : indicates all of the adaptations that were made to comply with the Debian Policy
+    - Locating package website : 
+        - `apt show <package>` : package’s meta-information. Search 'homepage' for official website
+        - '/usr/share/doc/package/copyright' : Official url 
+7. Kali documentation : http://docs.kali.org
+    - Kali forums : forums.kali.org, http://docs.kali.org/community/kali-linux-community-forums
+    - #kali-linux channel on the Freenode network 
+    - you can use chat.freenode.net as IRC server, on port 6667 for a TLS-encrypted connection or port 6666 for a clear-text connection.
+    - To join the discussions on IRC, you have to use an IRC client such as hexchat (in graphical mode) or irssi (in console mode). 
+    - There is also a web-based client available on webchat.freenode.net.
+    - Community rules : http://docs.kali.org/community/kali-linux-irc-channel
+8. Kali bugs : http://bugs.kali.org
